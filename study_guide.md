@@ -857,7 +857,7 @@ Where:
 
 This is the probability of encountering class $y$ without any context from the document. For example, if 60% of the reviews in the training data are positive, the prior probability of a positive review is 0.6. We calculate this from the training data as:
 
-$$P(Y = y) = \frac {\text{\# of documents with class y}}{\text{total \# of documents}}$$
+$$P(Y = y) = \frac {\text{Number of documents with class y}}{\text{Total number of documents}}$$
 
 ### 2. **Class-Conditional Probability $P(w_i | y)$**
 
@@ -1051,7 +1051,7 @@ Several metrics are used to evaluate the performance of classifiers, particularl
 
 Accuracy is the most basic evaluation metric and is defined as the percentage of instances correctly classified by the model:
 
-$$\text{Accuracy} = \frac{\text{\# of correct predictions}}{\text{total \# of predictions}}$$
+$$\text{Accuracy} = \frac{\text{Number of correct predictions}}{\text{Total number of predictions}}$$
 
 While accuracy is easy to understand, it can be misleading in situations where the data is imbalanced. For example, if 90% of the data belongs to class A and only 10% to class B, a classifier that always predicts A will have 90% accuracy, but it’s not useful for identifying class B.
 
@@ -1125,11 +1125,11 @@ $$\text{WER} = \frac{\text{Insertions} + \text{Deletions} + \text{Substitutions}
 
 - A probabilistic classifier return the most likely class $y$ for input $x$,
 
-$$y^* = \argmax_y P(Y=y|X=x)$$
+$$y^* = \arg \max_y P(Y=y|X=x)$$
 
 - Naive Bayes uses Bayes Rule:
 
-$$y^* = \argmax_y P(y|x) = \argmax_y P(x|y)P(y)$$
+$$y^* = \\arg \max_y P(y|x) = \arg \max_y P(x|y)P(y)$$
 
 - Naive Bayes models the **joint distribution** of the class and the data:
   
@@ -1412,7 +1412,7 @@ The total number of agreements (when both annotators chose the same category) is
 
 Thus, the observed agreement is:
 
-$$P(agree) = \frac{\text{\# of agreements}}{\text{total \# of items}} = \frac{40 + 20 + 10}{100} = 0.70$$
+$$P(agree) = \frac{\text{Number of agreements}}{\text{Total number of items}} = \frac{40 + 20 + 10}{100} = 0.70$$
 
 #### Step 2: Calculate Expected Agreement $P(expected)$
 
@@ -1468,7 +1468,7 @@ Statistical POS Tagging identifies the most likely sequence of POS tags for the 
 
 What is the most likely POS tag sequence $t = (t_1, \dots, t_n)$ for the given sentence $w = (w_1, \dots, w_n)$?
 
-$$t^* = \argmax_t P(t|w)$$
+$$t^* = \arg \max_t P(t|w)$$
 
 **What Helps in Deciding POS Tags?**
 
@@ -1483,11 +1483,11 @@ $$t^* = \argmax_t P(t|w)$$
 
 Generative models aim to model both the tags and the observed words. The goal is to compute the joint probability of the word sequence and tag sequence $P(w,t)$, and then find the tag sequence that maximizes this probability.
 
-$$t^* = \argmax_t P(t|w)$$
+$$t^* = \arg \max_t P(t|w)$$
 
 This can be decomposed to give:
 
-$$t^* = \argmax_t P(t)P(w|t)$$
+$$t^* = \arg \max_t P(t)P(w|t)$$
 
 The joint probability model is based on the assumption that:
 
@@ -2571,11 +2571,11 @@ The TDM can be used to measure similarity between documents (based on their term
 
 1. **Term Frequency (TF)**: The number of times a term appears in a document:
 
-   $$\text{TF}(t,d) = \text{\# of occurrences of term } t \text{ in document } d$$
+   $$\text{TF}(t,d) = \text{Number of occurrences of term } t \text{ in document } d$$
 
 2. **Document Frequency (IDF)**:
 
-    $$\text{DF}(t) = \text{\# of documents that contain the term} \space t$$
+    $$\text{DF}(t) = \text{Number of documents that contain the term} \space t$$
 
 3. **Inverse Document Frequency (IDF)**: A measure of how common or rare a term is across all documents:
 
@@ -3535,7 +3535,7 @@ The attention mechanism was introduced to overcome the limitations of fixed-leng
 
 Seq2Seq models are trained to minimize the **negative log-likelihood** of the correct translation. Given a source sentence, the model predicts the next word in the target sentence, and the loss is computed based on the probability of the correct word.
 
-$$L = - \sum_{t=1}^T \log P(y_t | y_{<t}, X)$$
+$$L = - \sum_{t=1}^T \log \space P(y_t | y_{< t}, X)$$
 
 where:
 - $y_t$ is the correct target word at time step $t$,
